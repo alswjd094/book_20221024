@@ -26,10 +26,17 @@ public class BookController {
         boolean result = bookService.save(bookDTO);
         model.addAttribute("result",result);
         if(result){
-            return "saveResult";
+            return "index";
         }else {
             return "false";
         }
+    }
 
+    @GetMapping("/findBook")
+    public String findBook(Model model){
+        BookDTO findResult = bookService.findBook();
+//        책에 대한 정보를 가져오기 위해서 DTO객체 받아오기
+        model.addAttribute("book",findResult);
+        return "findBook";
     }
 }
