@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class BookRepository {
 
@@ -18,5 +20,13 @@ public class BookRepository {
 
     public BookDTO findBook() {
         return sql.selectOne("Book.findBook");
+    }
+
+    public List<BookDTO> findAll() {
+        return sql.selectList("Book.findAll");
+    }
+
+    public BookDTO book(Long bookId) {
+        return sql.selectOne("Book.book",bookId);
     }
 }

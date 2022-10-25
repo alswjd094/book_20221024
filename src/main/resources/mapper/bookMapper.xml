@@ -12,6 +12,13 @@
 --         쿼리를 수행하고 넘겨줄 게 있을 때 resultType
     select * from book_table where bookId=2
     </select>
+    <select id="findAll" resultType="book">
+    select * from book_table
+
+    </select>
+    <select id="book" parameterType="Long" resultType="book">
+        select * from book_table where bookId=#{bookId}
+    </select>
 
 </mapper>
 
